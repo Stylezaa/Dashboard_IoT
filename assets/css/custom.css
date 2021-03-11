@@ -1,0 +1,32 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanslaoui.css);
+
+body {
+    /* font-family: 'Lao Sans Pro', sans-serif; */
+    font-family: 'Noto Sans Lao UI', sans-serif;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+.jumbotron p:last-child {
+    margin-bottom: 0;
+}
+
+.jumbotron-heading {
+    font-weight: 300;
+}
+
+.jumbotron .container {
+      max-width: 40rem;
+}
+
+footer {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+}
+
+footer p {
+      margin-bottom: .25rem;
+}

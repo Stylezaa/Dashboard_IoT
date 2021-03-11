@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./assets/img/favicon.png" type="image/gif" sizes="16x16">
+
+        <!-- Auth -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="./assets/css/styles.css">
+        <link rel="stylesheet" href="./assets/css/custom.css">
+
+        <!-- CSS Gauges -->
+        <link rel="stylesheet" href="./assets/css/gauges.css">
+        <link rel="stylesheet" href="./assets/css/app.css">
+
+        <title>IoT - Box</title>
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+
+            <div class="header__img">
+                <div class="gauge-section">
+                    <i class='bx bx-wifi'></i>
+                    <div id="wifi" style="display: inline;">ກຳລັງໂຫຼດຂໍ້ມູນ</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="device.html" class="nav__logo">
+                        <i class='bx bxs-cloud' style="color: white; font-size: 22px;"></i>
+                        <span class="nav__logo-name">Overclock</span>
+                    </a>
+
+                    <div class="nav__list">
+                        <a href="dashboard.html" class="nav__link">
+                            <i class='bx bxs-dashboard' ></i>
+                            <span class="nav__name">ພາບລວມ</span>
+                        </a>
+
+                        <a href="humidity.html" class="nav__link">
+                            <i class='bx bx-droplet'></i>
+                            <span class="nav__name">ຄວາມຊຸ່ມອາກາດ</span>
+                        </a>
+
+                        <a href="temperature.html" class="nav__link">
+                            <i class='bx bx-sun' ></i>
+                            <span class="nav__name">ອຸນຫະພູມ</span>
+                        </a>
+                        
+                        <a href="soil.html" class="nav__link active">
+                            <i class='bx bx-water' ></i>
+                            <span class="nav__name">ຄວາມຊຸ່ມດິນ</span>
+                        </a>
+
+                        <a href="about.html" class="nav__link">
+                            <i class='bx bxs-user'></i>
+                            <span class="nav__name">ກ່ຽວກັບທີມ</span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <a onclick="mainApp.logOut()" href="#" class="nav__link" id="login-button">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">ອອກຈາກລະບົບ</span>
+                </a>
+            </nav>
+        </div>
+
+        
+        <div class="container-dashboard-items-page-allpage">
+            <div class="item1-page">
+                <img src="./assets/img/Soil-sensor.png" alt="">
+                <span>Soil Sensor</span>
+            </div>
+            <div class="item2-page">
+                <h3>ຄວາມຊຸ່ມດິນ</h3>
+                <div class="gauge-section">
+                    <div id="soil" class="gauge"><div class="lds-ripple"><div></div><div></div></div></div>
+                </div>
+            </div>
+            <div class="item3-page">
+                <h3>ຜົນການວິເຄາະ</h3>
+                <div id="container" style="min-width: 100%; height: 400px; margin: 0 auto"><div class="lds-ripple"><div></div><div></div></div></div>
+            </div>
+        </div>
+
+        <!--===== MAIN JS =====-->
+        <script src="./assets/js/main.js"></script>
+        <script src="./assets/js/jquery-3.1.1.min.js"></script>
+        <script src="./assets/js/auth/firebase.js"></script>
+        <script src="./assets/js/auth/main.js"></script>
+
+        <!-- Chart -->
+        <script src="./assets/js/highcharts.js"></script>
+        
+
+        <!-- MQTT -->
+        <script type="text/javascript" src="./assets/js/mqttws31.js"></script>
+        <script type="text/javascript" src="./assets/js/MqttSubSoil.js"></script>
+
+        <!-- Script -->
+        <script src="./assets/js/jquery.slim.min.js"></script>
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+        <script src="./assets/js/fontawesome.js"></script>
+        <script src="./assets/js/gauges.js"></script>
+        <script src="./assets/js/timer.js"></script>
+
+    </body>
+</html>

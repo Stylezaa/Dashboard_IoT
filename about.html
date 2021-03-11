@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./assets/img/favicon.png" type="image/gif" sizes="16x16">
+
+        <!-- Auth -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="./assets/css/styles.css">
+        <link rel="stylesheet" href="./assets/css/custom.css">
+
+        <!-- CSS Gauges -->
+        <link rel="stylesheet" href="./assets/css/gauges.css">
+        <link rel="stylesheet" href="./assets/css/app.css">
+
+        <title>IoT - Box</title>
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+
+            <!-- <div class="header__img">
+                <div class="gauge-section">
+                    <i class='bx bx-wifi'></i>
+                    <div id="wifi" style="display: inline;">ກຳລັງໂຫຼດຂໍ້ມູນ</div>
+                </div>
+            </div> -->
+        </header>
+
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="device.html" class="nav__logo">
+                        <i class='bx bxs-cloud' style="color: white; font-size: 22px;"></i>
+                        <span class="nav__logo-name">Overclock</span>
+                    </a>
+
+                    <div class="nav__list">
+
+                        <a href="dashboard.html" class="nav__link">
+                            <i class='bx bxs-dashboard' ></i>
+                            <span class="nav__name">ພາບລວມ</span>
+                        </a>
+
+                        <a href="humidity.html" class="nav__link">
+                            <i class='bx bx-droplet'></i>
+                            <span class="nav__name">ຄວາມຊຸ່ມອາກາດ</span>
+                        </a>
+
+                        <a href="temperature.html" class="nav__link">
+                            <i class='bx bx-sun' ></i>
+                            <span class="nav__name">ອຸນຫະພູມ</span>
+                        </a>
+                        
+                        <a href="soil.html" class="nav__link">
+                            <i class='bx bx-water' ></i>
+                            <span class="nav__name">ຄວາມຊຸ່ມດິນ</span>
+                        </a>
+
+                        <a href="about.html" class="nav__link active">
+                            <i class='bx bxs-user'></i>
+                            <span class="nav__name">ກ່ຽວກັບທີມ</span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <a onclick="mainApp.logOut()" href="#" class="nav__link" id="login-button">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">ອອກຈາກລະບົບ</span>
+                </a>
+            </nav>
+        </div>
+
+        
+        <div class="container-dashboard-items-about">
+            <br>
+            <div class="present">
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/rRO27BjXZJI?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="aboutus" style="font-size:20px; font-weight: 600;"> 
+                <p style="text-indent: 20px;">ພວກເຮົາເປັນກຸ່ມນັກສຶກສາທີ່ຮຽນຢູ່ຄະນະວິສະວະກຳສາດ ພາກວິສະວະກະຄອມພິວເຕີ ແລະ ເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ ປັດຈຸບັນພວກເຮົາກຳລັງສຶກສາຢູ່ປີ III  ຫ້ອງ 3Computer1 ທີ່ພວກເຮົາເຮັດໂຄງງານນີ້ຂື້ນມາເພາະວ່າພວກເຮົາຢາກຈະເພີ້ມຄວາມສະດວກສະບາຍໃນການກະສິກຳກໍ່ຄື:</p>
+                <ul style="margin: 0;">
+                    <li>ເພື່ອຊ່ວຍໃນການຈະເລີນເຕີບໂຕຂອງພືດ ເພາະວ່າຖ້າເຮົາຮູ້ຈັກອຸນຫະພູມ ແລະ ຄວາມຊຸມຢູ່ບ່ອນທີ່ເຮົາປູກພືດຈະເຮັດໃຫ້ເຮົາສາມາດເບິ່ງແຍງພືດໄດ້ດີກວ່າ.</li>
+                    <li>ເພື່ອເພີ້ມຜົນການຜະລິດຂອງພືດ.</li>
+                    <li>ເພື່ອສຶກສາອັດຕາການນຳໃຊ້ນ້ຳໃນການປູກພືດ.</li>
+                </ul>
+                <p>ທີ່ພວກເຮົາສາມາດເຮັດໂຄງງານນີ້ຂື້ນມາໄດ້ຍ້ອນວ່າ ພວກເຮົາໄດ້ຮຽນວິຊາ: ໄມໂຄຣໂປຣເຊັດເຊີ ແລະ ໄມໂຄຣຄອມພິວເຕີ ທີ່ສອນໂດຍ: ອາຈານ ກະຕ່າຍ ໄຊຍະສົມບັດ.</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="heading-title text-center">
+                <h3 class="text-uppercase">ທິມງານ</h3>
+            </div>
+            <div class="container-member">
+                <div class="member">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="./assets/img/Fiko.jpg" alt="team member" class="img-responsive">
+                        </div>
+                        <div class="team-hover">
+                            <div class="s-link">
+                                <a href="https://www.facebook.com/fiko.fego" target="_blank"><i class='bx bxl-facebook-square' ></i></a>
+                                <a href="https://www.instagram.com/phonepaserth_ssk/" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                                <a href="https://github.com/Phonepaserth" target="_blank"><i class='bx bxl-github' ></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-title">
+                        <h5>ທ້າວ ພອນປະເສີດ ສີໃສແກ້ວ</h5>
+                        <span>Founder &amp; CEO</span>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="./assets/img/Sin.jpg" alt="team member" class="img-responsive">
+                        </div>
+                        <div class="team-hover">
+                            <div class="s-link">
+                                <a href="https://www.facebook.com/thanusin.pouvongkhamchan/" target="_blank"><i class='bx bxl-facebook-square' ></i></a>
+                                <a href="https://www.instagram.com/sin_pp555/" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                                <a href="https://github.com/Stylezaa" target="_blank"><i class='bx bxl-github' ></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-title">
+                        <h5>ທ້າວ ທະນູສິນ ພູວົງຄໍາຈັນ</h5>
+                        <span>Deverloper</span>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="./assets/img/Jumbuii.jpeg" alt="team member" class="img-responsive">
+                        </div>
+                        <div class="team-hover">
+                            <div class="s-link">
+                                <a href="https://www.facebook.com/jumbui.vannapho" target="_blank"><i class='bx bxl-facebook-square' ></i></a>
+                                <a href="https://www.instagram.com/jumbuii/" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                                <a href="https://github.com/Jumbui" target="_blank"><i class='bx bxl-github' ></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-title">
+                        <h5>ນາງ ມະນີວອນ ວັນນະໂພ</h5>
+                        <span>Documenter</span>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="./assets/img/Tah.jpeg" alt="team member" class="img-responsive">
+                        </div>
+                        <div class="team-hover">
+                            <div class="s-link">
+                                <a href="https://www.facebook.com/tah.phim/" target="_blank"><i class='bx bxl-facebook-square' ></i></a>
+                                <a href="https://www.instagram.com/_chanthavong_/" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                                <a href="https://github.com/Chanthavongphet" target="_blank"><i class='bx bxl-github' ></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-title">
+                        <h5>ທ້າວ ຈັນທະວົງເພັດ ພິມມະຈັກ</h5>
+                        <span>Design</span>
+                    </div>
+                </div>
+                <div class="member">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <img src="./assets/img/Tah.jpeg" alt="team member" class="img-responsive">
+                        </div>
+                        <div class="team-hover">
+                            <div class="s-link">
+                                <a href="https://www.facebook.com/tah.phim/" target="_blank"><i class='bx bxl-facebook-square' ></i></a>
+                                <a href="https://www.instagram.com/_chanthavong_/" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                                <a href="https://github.com/Chanthavongphet" target="_blank"><i class='bx bxl-github' ></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-title">
+                        <h5>ທ້າວ ສູລິເດດ ອອນຕາວົງ</h5>
+                        <span>Supporter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--===== MAIN JS =====-->
+        <script src="./assets/js/main.js"></script>
+        <script src="./assets/js/jquery-3.1.1.min.js"></script>
+        <script src="./assets/js/auth/firebase.js"></script>
+        <script src="./assets/js/auth/main.js"></script>
+
+        <!-- Chart -->
+        <script src="./assets/js/highcharts.js"></script>
+        
+
+        <!-- MQTT -->
+        <script type="text/javascript" src="./assets/js/mqttws31.js"></script>
+        <script type="text/javascript" src="./assets/js/MqttSubscribe.js"></script>
+
+        <!-- Script -->
+        <script src="./assets/js/jquery.slim.min.js"></script>
+        <script src="./assets/js/popper.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+        <script src="./assets/js/fontawesome.js"></script>
+        <script src="./assets/js/gauges.js"></script>
+        <script src="./assets/js/timer.js"></script>
+
+    </body>
+</html>

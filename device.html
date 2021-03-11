@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./assets/img/favicon.png" type="image/gif" sizes="16x16">
+
+        <!-- Auth -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="./assets/css/styles.css">
+        <link rel="stylesheet" href="./assets/css/custom.css">
+
+        <!-- CSS Gauges -->
+        <link rel="stylesheet" href="./assets/css/gauges.css">
+        <link rel="stylesheet" href="./assets/css/app.css">
+        
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
+        <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+        <title>IoT - Box</title>
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+        </header>
+
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="device.html" class="nav__logo">
+                        <i class='bx bxs-cloud' style="color: white; font-size: 22px;"></i>
+                        <span class="nav__logo-name">Overclock</span>
+                    </a>
+
+                    <!-- <div class="nav__list">
+                        <a href="dashboard.html" class="nav__link">
+                            <i class='bx bxs-dashboard' ></i>
+                            <span class="nav__name">ພາບລວມ</span>
+                        </a>
+
+                        <a href="humidity.html" class="nav__link">
+                            <i class='bx bx-droplet'></i>
+                            <span class="nav__name">ຄວາມຊຸ່ມອາກາດ</span>
+                        </a>
+
+                        <a href="temperature.html" class="nav__link">
+                            <i class='bx bx-sun' ></i>
+                            <span class="nav__name">ອຸນຫະພູມ</span>
+                        </a>
+                        
+                        <a href="soil.html" class="nav__link">
+                            <i class='bx bx-water' ></i>
+                            <span class="nav__name">ຄວາມຊຸ່ມດິນ</span>
+                        </a>
+
+                        <a href="about.html" class="nav__link">
+                            <i class='bx bxs-user'></i>
+                            <span class="nav__name">ກ່ຽວກັບທີມ</span>
+                        </a>
+
+                    </div> -->
+                </div>
+
+                <a onclick="mainApp.logOut()" href="#" class="nav__link" id="login-button">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">ອອກຈາກລະບົບ</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="title-device">
+            <h2>ລາຍການອຸປະກອນ</h2>
+        </div>
+        
+        <div class="container-first">
+            <div class="box-item">
+                <a href="dashboard.html"><img src="./assets/img/IoTBox.png" alt=""><span>Box ONE</span></a>    
+            </div>
+            <div class="add-device">
+                <a id="myBtn" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="370" height="332" viewBox="0 0 24 24" style="fill:#2638c4;transform:0;-ms-filter:none"><path d="M13 7L11 7 11 11 7 11 7 13 11 13 11 17 13 17 13 13 17 13 17 11 13 11z"></path><path d="M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10c5.514,0,10-4.486,10-10S17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z"></path></svg></a>
+            </div>
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>ກຳລັງພັດທະນາ</h3>
+            </div>
+
+        </div>
+
+
+        <!--===== MAIN JS =====-->
+        <script src="./assets/js/main.js"></script>
+        <script src="./assets/js/jquery-3.1.1.min.js"></script>
+        <script src="./assets/js/auth/firebase.js"></script>
+        <script src="./assets/js/auth/main.js"></script>
+    </body>
+</html>
